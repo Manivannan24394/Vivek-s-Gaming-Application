@@ -10,7 +10,7 @@ pipeline {
     }
     
     stages {
-        stage('GIT latest CHECKOUT') {
+        stage('GIT LATEST CHECKOUT') {
             steps {
                git branch: 'main', credentialsId: 'git-cred', url: 'https://github.com/VM2322/Boardgame.git'
             }
@@ -67,7 +67,7 @@ pipeline {
             }
         } 
     
-             stage('IMAGE SCANNING') {
+             stage('TRIVY IMAGE SCANNING') {
             steps {
                 sh "trivy image --format table -o trivy-image-report.html adijaiswal/boardshack:latest "
             }
